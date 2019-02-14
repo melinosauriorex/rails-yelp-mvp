@@ -1,0 +1,13 @@
+<h1>Restaurants</h1>
+
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <%= link_to restaurant_path(restaurant) do %>
+    <h2><%= restaurant.name.upcase %></h2>
+  <% end %>
+  <p><%= restaurant.address %> (<%= restaurant.phone_number%>)</p>
+  <p><%= restaurant.category %></p>
+  <p><%= link_to "Edit", edit_restaurant_path(restaurant) %></p>
+  <p><%= link_to "Remove", restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure you want to delete it?"} %></p>
+<% end %>
+</ul>
